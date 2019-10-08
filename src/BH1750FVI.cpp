@@ -57,6 +57,15 @@ void BH1750FVI::Sleep(void)
   I2CWrite(k_DevStatePowerDown); // Turn it off
 }
 
+bool BH1750FVI::isPresent()
+{
+  // Check I2C Adresse
+  Wire.beginTransmission(m_DeviceAddress);
+  if(Wire.endTransmission()!=0) {
+    return false; 
+  }else return true;
+}
+
 void BH1750FVI::Reset(void)
 {
   I2CWrite(k_DevStatePowerUp);  // Turn it on before we can reset it

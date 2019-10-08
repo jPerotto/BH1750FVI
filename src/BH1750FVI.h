@@ -96,9 +96,14 @@ class BH1750FVI {
     /*
      * Activate sleep mode
      */
-    void Sleep(void); 
-    
-    /*
+    void Sleep(void);
+	
+	/*
+	 * Verification of presence BH1750
+     */
+	bool isPresent();
+	
+	/*
      * Reset the device
      */
     void Reset(void);
